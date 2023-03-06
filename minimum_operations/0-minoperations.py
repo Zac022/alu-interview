@@ -16,3 +16,5 @@ def minOperations(n):
                 return minOperations(n // i) + i
         return n
 
+
+
