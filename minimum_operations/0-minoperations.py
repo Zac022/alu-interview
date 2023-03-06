@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 """
 Module for minimum operations problem
@@ -6,7 +7,8 @@ Module for minimum operations problem
 
 def minOperations(n):
     """
-    Method to calculate the fewest number of operations needed to result in exactly n H characters in the file.
+    Method to calculate the fewest number of operations needed to result in
+    exactly n H characters in the file.
     """
     if n <= 1:
         return 0
@@ -15,6 +17,5 @@ def minOperations(n):
             if n % i == 0:
                 return minOperations(n // i) + i
         return n
-
 
 
