@@ -1,5 +1,5 @@
 
-#!/usr/bin/python3
+# #!/usr/bin/python3
 """
 Module for minimum operations problem
 """
@@ -17,5 +17,3 @@ def minOperations(n):
             if n % i == 0:
                 return minOperations(n // i) + i
         return n
-
-
