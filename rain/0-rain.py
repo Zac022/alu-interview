@@ -1,4 +1,5 @@
-i#!/usr/bin/python3
+#!/usr/bin/python3
+
 """
 Module for computing the amount of rainwater that can be trapped on a terrain map
 """
