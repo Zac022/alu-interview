@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Module for computing the amount of rainwater that can be trapped on a terrain map
 """
@@ -26,4 +25,6 @@ def rain(walls):
             right -= 1
 
     return trapped
+
+
 
