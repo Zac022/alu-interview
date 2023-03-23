@@ -1,38 +1,28 @@
 #!/usr/bin/python3
 """
-0-rain module
+Module for computing the amount of rainwater that can be trapped on a terrain map
 """
 
 def rain(walls):
     """
-    Given a list of non-negative integers representing the heights of walls with
-    unit width 1, as if viewing the cross-section of a relief map, calculates how
-    many square units of water will be retained after it rains.
-
-    Args:
-    - walls: list of non-negative integers representing the heights of walls
-
-    Returns:
-    - Integer indicating total amount of rainwater retained.
+    Computes the amount of rainwater that can be trapped on a terrain map
     """
-    if not walls:
+    if not walls or len(walls) < 3:
         return 0
 
-    n = len(walls)
-    left_max = [0] * n
-    right_max = [0] * n
+    trapped = 0
+    left, right = 0, len(walls) - 1
+    left_max, right_max = walls[left], walls[right]
 
-    left_max[0] = walls[0]
-    for i in range(1, n):
-        left_max[i] = max(left_max[i-1], walls[i])
+    while left < right:
+        if walls[left] < walls[right]:
+            left_max = max(left_max, walls[left])
+            trapped += left_max - walls[left]
+            left += 1
+        else:
+            right_max = max(right_max, walls[right])
+            trapped += right_max - walls[right]
+            right -= 1
 
-    right_max[n-1] = walls[n-1]
-    for i in range(n-2, -1, -1):
-        right_max[i] = max(right_max[i+1], walls[i])
-
-    water_trapped = 0
-    for i in range(n):
-        water_trapped += min(left_max[i], right_max[i]) - walls[i]
-
-    return water_trapped
+    return trapped
 
